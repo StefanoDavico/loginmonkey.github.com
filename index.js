@@ -4,7 +4,7 @@ const path = require('path');
 const router = express.Router();
  
 router.get('/',function(req,res){
-  res.send('eccellente prestazione');
+  res.sendFile(__dirname+'var/task/Sito/index.html');
   //__dirname : It will resolve to your project folder.
 });
  
