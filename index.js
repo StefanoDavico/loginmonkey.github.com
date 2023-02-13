@@ -1,16 +1,13 @@
 const express = require('express');
 const app = express();
-const path = require('path');
-const router = express.Router();
- 
-router.get('/',function(req,res){
-  res.sendFile('Sito/index.html');
-  //__dirname : It will resolve to your project folder.
+// app.use('/Sito', express.static('./Sito'));
+app.use(express.static(__dirname + '/Sito/'));
+
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
 });
- 
- 
-//add the router
-app.use('/', router);
 app.listen(process.env.port || 3001);
  
 console.log('Running at Port 3001');
